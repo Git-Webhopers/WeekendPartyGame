@@ -1,0 +1,1 @@
+<image {{ $attributes }} src="{{ asset('storage/logo.png') }}" />
