@@ -20,6 +20,9 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->string('avatar')->nullable();
+            $table->string('bio')->nullable();
+            $table->enum('role', ['Admin', 'Player'])->default('Player');
             $table->timestamps();
         });
     }
