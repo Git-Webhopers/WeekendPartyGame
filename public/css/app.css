@@ -32851,6 +32851,10 @@ input:invalid, textarea:invalid, select:invalid {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
 /**
  * Here you would add any custom utilities you need that don't come out of the
  * box with Tailwind.

@@ -1,4 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const plugin = require('tailwindcss/plugin');
+
 
 module.exports = {
     theme: {
@@ -10,7 +12,7 @@ module.exports = {
     },
     variants: {
         extend: {
-            backgroundColor: ['active'],
+            backgroundColor: ['active', 'hover'],
         }
     },
     purge: {
@@ -31,6 +33,14 @@ module.exports = {
         },
     },
     plugins: [
+        plugin(function ({ addUtilities, addComponents, e, prefix, config }) {
+            // Add your custom styles here
+            addUtilities({
+                ".rotate-y-180": {
+                    transform: "rotateY(180deg)"
+                }
+            })
+        }),
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
     ],
