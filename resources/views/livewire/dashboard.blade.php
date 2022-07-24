@@ -133,8 +133,8 @@
             </div>
         </div>
     </div>
-    <div class="col-span-3 px-4 py-4" x-data>
-        <div class="grid grid-cols-4 gap-4">
+    <div class="col-span-3 px-4 py-4">
+        <div class="flex flex-wrap">
             <x-game.card />
             <x-game.card />
             <x-game.card />
@@ -145,16 +145,6 @@
             <x-game.card />
             <x-game.card />
             <x-game.card />
-            <div x-on:click="$wire.flip()" class="w-80 h-96 bg-transparent cursor-pointer group">
-                <div class="relative w-full h-full duration-1000 {{ $flipped ? ' rotate-y-180' : '' }}">
-                    <div class="absolute border-2 bg-blue-400 w-full h-full">
-                        Front
-                    </div>
-                    <div class="absolute bg-yellow-400 w-full h-full hello">
-                        back
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
