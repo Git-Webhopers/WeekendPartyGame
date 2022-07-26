@@ -16,7 +16,28 @@ class UserEdit extends Component
 
     public function update()
     {
+        $this->validate($this->rules());
         $this->user->save();
-        dd(['User Updated', $this->user]);
+    }
+
+    protected function rules()
+    {
+        return [
+            'user.name' => [
+                'required'
+            ],
+            'user.email' => [
+                'required'
+            ],
+            'user.mobile' => [
+                'required'
+            ],
+            'user.password' => [
+                'password'
+            ],
+            'user.cpassword' => [
+                'password'
+            ],
+        ];
     }
 }
