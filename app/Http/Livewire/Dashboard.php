@@ -11,7 +11,8 @@ class Dashboard extends Component
     public $users;
     public $cards;
 
-    public function mount(){
+    public function mount()
+    {
         $this->users = User::where('role', 'Player')->get();
         $this->cards = $this->users->shuffle()->all();
     }
@@ -24,11 +25,12 @@ class Dashboard extends Component
     public function mixCards()
     {
         $this->cards = $this->users->shuffle()->all();
-
     }
 
     public function flip($id)
     {
-        $this->flipped = $id;
+        // dd($id);
+        if ($this->flipped == 0)
+            $this->flipped = $id;
     }
 }

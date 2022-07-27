@@ -46,7 +46,9 @@
     <div class="col-span-3 px-4 py-4">
         <div class="flex flex-wrap">
             @foreach($cards as $card)
-            <x-game.card avatar="{{ $card->avatar }}" name="{{ $card->name }}" bio="{{ $card->bio ?? 'I am a Gamehoper' }}" />
+            <a href="#" wire:click="flip({{$card['id']}})">
+                <x-game.card cardId="{{$card['id']}}" flipped="{{ $flipped }}" avatar="{{ $card['avatar'] }}" name="{{ $card['name'] }}" />
+            </a>
             @endforeach
         </div>
     </div>

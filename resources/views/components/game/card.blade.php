@@ -1,6 +1,12 @@
-<div x-data="{ flip: false }" x-on:click.debounce.100ms="flip = true" class="w-48 h-56 m-2 bg-transparent cursor-pointer bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+@props([
+'flipped' => 0,
+'cardId' => -1,
+'avatar' => '',
+'name' => 'Name Here'
+])
+<div x-data="{ flip: false }" x-on:click.debounce.200ms="flip = true" class="w-48 h-56 m-2 bg-transparent cursor-pointer bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
     <div class="relative w-full h-full">
-        <div class="absolute backface-hidden w-full h-full flex flex-col items-center rounded-lg p-4 bg-purple-300">
+        <div class="absolute backface-hidden w-full h-full flex flex-col items-center rounded-lg p-4 {{ $flipped==$cardId ? 'bg-red-400' : 'bg-green-400' }}">
             @if($avatar ?? false )
             <img class="mb-2 w-40 h-40 rounded-full shadow-lg" src="{{ $avatar ? asset('storage/'.$avatar) : ''}}" alt="Bonnie image">
             @else
