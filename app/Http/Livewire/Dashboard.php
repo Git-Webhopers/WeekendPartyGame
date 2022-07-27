@@ -11,10 +11,13 @@ class Dashboard extends Component
     public $users;
     public $cards;
 
-    public function render()
-    {
+    public function mount(){
         $this->users = User::where('role', 'Player')->get();
         $this->cards = $this->users->shuffle()->all();
+    }
+
+    public function render()
+    {
         return view('livewire.dashboard');
     }
 
