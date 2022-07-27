@@ -17,6 +17,7 @@ class CreateGameUserTable extends Migration
             $table->id();
             $table->foreignId('game_id')->references('id')->on('games');
             $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('flipped_id')->nullable()->references('id')->on('users');
             $table->timestamps();
         });
     }
