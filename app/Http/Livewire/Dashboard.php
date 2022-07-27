@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Dashboard extends Component
 {
-    public $flipped = false;
+    public $flipped = 0;
     public $users;
     public $cards;
 
@@ -24,11 +24,11 @@ class Dashboard extends Component
     public function mixCards()
     {
         $this->cards = $this->users->shuffle()->all();
-        dd('ok');
+
     }
 
-    public function flip()
+    public function flip($id)
     {
-        $this->flipped = !$this->flipped;
+        $this->flipped = $id;
     }
 }
