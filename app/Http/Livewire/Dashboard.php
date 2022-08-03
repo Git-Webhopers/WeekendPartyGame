@@ -10,8 +10,8 @@ use Livewire\Component;
 class Dashboard extends Component
 {
     public $flipped = 0;
-    public $users;
-    public $cards;
+    public $users = [];
+    public $cards = [];
     public $game;
 
     public function mount()
@@ -23,7 +23,6 @@ class Dashboard extends Component
             $this->flipped = $pivot ? $pivot->flipped_id : 0;
             $this->cards = $this->users->shuffle()->all();
         }
-        // dd($this->users);
     }
 
     public function render()

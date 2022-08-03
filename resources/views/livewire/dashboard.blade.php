@@ -37,7 +37,7 @@
                                 @endif
                             </div>
                             <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                                {{ $score ?? '0' }}
+                                {{ count($user->playersFlippedMe($game->id)) }}
                             </div>
                         </div>
                     </li>

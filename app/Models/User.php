@@ -54,4 +54,10 @@ class User extends Authenticatable
     {
         return Carbon::parse($this->last_seen_at)->diffForHumans();
     }
+
+    public function playersFlippedMe($game_id)
+    {
+        $playerIds = GameUser::where('game_id', $game_id)->where('flipped_id', $this->id)->pluck('user_id')->toArray();
+        return User::whereIn('id', $playerIds)->get();
+    }
 }
